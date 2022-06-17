@@ -3,9 +3,7 @@ class Solution:
         #trivial case: k = len(cardPoints) --> sum of all
         #tranform problem to find biggest sum window k in list of 2k array (k + 1 different sols)
         #at each window step, only calculate difference to --> 
-        #if len(cardPoints) == k:
-        #    return sum(cardPoints)
-        
+  
         base_sum = sum(cardPoints[:k])
         diff = 0
         max_diff = 0
