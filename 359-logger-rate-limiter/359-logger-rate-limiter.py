@@ -9,7 +9,7 @@ class Logger:
             return True
         else:
             past_time = self.messages[message]
-            if ((past_time+10) <= timestamp):
+            if ((past_time + 10) <= timestamp):
                 self.messages[message] = timestamp
                 return True
             else:
