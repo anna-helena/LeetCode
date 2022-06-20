@@ -9,10 +9,9 @@ class Solution:
         result = []
         depths = {}
         max_val = self.helper_fct(root,depths)
-        #for val in range(0,max_val):
-        #    result.append(depths[val])
-        #return result
-        return depths.values()
+        for val in range(0,max_val):
+            result.append(depths[val])
+        return result
     
     def helper_fct(self, root,depths):
         if not root:
