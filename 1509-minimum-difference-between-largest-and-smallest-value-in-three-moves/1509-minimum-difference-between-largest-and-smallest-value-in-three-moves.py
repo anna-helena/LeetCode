@@ -4,15 +4,9 @@ class Solution:
         #sort the array
         #go with smalles, largest index, and count 3 "jumps" always biggest diff, then return max_diff
         #trivial when len <= 4
-        if(len(nums)<=4):
-            return 0
+        if len(nums) <= 3:
+	        return 0
         nums.sort()
-        nr_consider = len(nums) - 3
-        diff = nums[len(nums)-1] - nums[0]
-        for i in range(0,len(nums)-nr_consider+1):
-            diff_temp = nums[i+nr_consider-1] - nums[i]
-            if diff_temp < diff:
-                diff = diff_temp
-        return diff
-            
+        #Check all possible ways to to remove 3 numbers
+        return min(nums[-1] - nums[3], nums[-2]-nums[2],nums[-3]-nums[1],nums[-4]-nums[0])
         
