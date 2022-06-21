@@ -4,7 +4,7 @@ class Solution:
         #sort the array
         #go with smalles, largest index, and count 3 "jumps" always biggest diff, then return max_diff
         #trivial when len <= 4
-        if len(nums) <= 3:
+        if len(nums) <= 4:
 	        return 0
         nums.sort()
         #Check all possible ways to to remove 3 numbers
