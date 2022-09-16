@@ -3,8 +3,6 @@ from collections import deque
 class Solution:
     def shortestPath(self, grid: List[List[int]], k: int) -> int:
         q = deque()
-        #q.append('a')
-        #q.popleft() 
         seen = {}
 
         y = len(grid) - 1
@@ -23,12 +21,8 @@ class Solution:
             if x_ > 0:
                 x = x_ - 1
                 y = y_
-                if ((x,y) in seen):
-                    k_val = seen[(x,y)]
-                    if k_val < k_:
-                        del seen[(x,y)]
                     
-                if ((x,y) not in seen):
+                if (((x,y) not in seen) or (seen[(x,y)] < k_)) :
                     temp = grid[y][x]
                     if ((temp == 1) & (k_ > 0)):
                         q.append((x,y,k_-1,steps+1))
@@ -42,12 +36,8 @@ class Solution:
             if y_ > 0:
                 x = x_
                 y = y_ - 1
-                if ((x,y) in seen):
-                    k_val = seen[(x,y)]
-                    if k_val < k_:
-                        del seen[(x,y)]
-                        
-                if ((x,y) not in seen):
+                
+                if (((x,y) not in seen) or (seen[(x,y)] < k_)) :
                     temp = grid[y][x]
                     if ((temp == 1) & (k_ > 0)):
                         q.append((x,y,k_-1,steps+1))
@@ -59,12 +49,8 @@ class Solution:
             if x_ < len(grid[0]) -1:
                 x = x_ + 1
                 y = y_
-                if ((x,y) in seen):
-                    k_val = seen[(x,y)]
-                    if k_val < k_:
-                        del seen[(x,y)]
-                        
-                if ((x,y) not in seen):
+     
+                if (((x,y) not in seen) or (seen[(x,y)] < k_)) :
                     temp = grid[y][x]
                     if ((temp == 1) & (k_ > 0)):
                         q.append((x,y,k_-1,steps+1))
@@ -76,12 +62,8 @@ class Solution:
             if y_ < len(grid) -1:
                 x = x_ 
                 y = y_ + 1
-                if ((x,y) in seen):
-                    k_val = seen[(x,y)]
-                    if k_val < k_:
-                        del seen[(x,y)]
-                        
-                if ((x,y) not in seen):
+              
+                if (((x,y) not in seen) or (seen[(x,y)] < k_)) :
                     temp = grid[y][x]
                     if ((temp == 1) & (k_ > 0)):
                         q.append((x,y,k_-1,steps+1))
