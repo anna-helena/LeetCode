@@ -6,8 +6,8 @@ class Solution(object):
         """
         a=len(points[0])
         b=len(points)
-        for i in range((b)-1):
-            for j in range(1,(a)):
+        for i in range(b-1):
+            for j in range(1,a):
                 points[i][j]=max(points[i][j], points[i][j - 1] - 1)
             for j in range(a-2,-1,-1):
                 points[i][j]=max(points[i][j], points[i][j + 1] - 1)
