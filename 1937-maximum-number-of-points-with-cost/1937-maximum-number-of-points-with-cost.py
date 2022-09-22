@@ -6,7 +6,6 @@ class Solution(object):
         """
         a=len(points[0])
         b=len(points)
-        s=[]
         for i in range((b)-1):
             for j in range(1,(a)):
                 points[i][j]=max(points[i][j], points[i][j - 1] - 1)
@@ -15,7 +14,4 @@ class Solution(object):
             for j in range(a):
                 points[i+1][j]+=points[i][j]
         
-        return max(points[len(points)-1])
-        for i in range(len(points)):
-            s.append(max(points[i]))
-        return max(s)
+        return max(points[b-1])
