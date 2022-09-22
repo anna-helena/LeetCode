@@ -27,5 +27,6 @@ class Solution(object):
                             new_tree_list.append(tree)
             all_trees[n] = new_tree_list
             return new_tree_list
-        
+        if n % 2 == 0:
+            return []
         return get_all_trees(n)
