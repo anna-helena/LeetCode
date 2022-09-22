@@ -28,5 +28,4 @@ class Solution(object):
             all_trees[n] = new_tree_list
             return new_tree_list
         
-        get_all_trees(n)
-        return all_trees[n]
+        return get_all_trees(n)
