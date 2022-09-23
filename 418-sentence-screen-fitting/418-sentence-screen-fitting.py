@@ -36,8 +36,12 @@ class Solution(object):
                     return (r-r_start,c, counter)
                 w_idx += 1
         
+        max_word = 0
+        for word in sentence:
+            max_word = max(len(word),max_word)
+        if max_word > cols:
+            return 0
         while True:
-           # print(jumping, counter)
             if c in jumping:
                 (r_jump, c, count) = jumping[c]
                 r += r_jump
@@ -48,7 +52,6 @@ class Solution(object):
                 jumping[c] = (r_jump, c_new, count)
                 c = c_new
                 r += r_jump
-            #print(r_jump,c,count)
             if r > rows:
                 return counter+count-1
             counter += count
