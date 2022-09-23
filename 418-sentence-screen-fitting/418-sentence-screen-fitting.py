@@ -18,8 +18,6 @@ class Solution(object):
             counter = 0
             while True:
                 word = sentence[w_idx]
-                if len(word) > cols:
-                    return (False,False,counter)
                 temp = c + len(word)
                 if (temp <= cols):
                     c = temp + (0 if (temp == cols) else 1)
