@@ -20,8 +20,8 @@ class StockPrice:
                 del self.nr_prices[prev]
             else:
                 self.nr_prices[prev] = temp - 1
-        heapq.heappush(self.min_val,price)
-        heapq.heappush(self.max_val,-1*price)
+        heapq.heappush(self.min_val,(price,timestamp))
+        heapq.heappush(self.max_val,(-1*price,timestamp))
         self.prices[timestamp] = price
         if price in self.nr_prices:
             temp = self.nr_prices[price] 
@@ -38,18 +38,18 @@ class StockPrice:
 
     def maximum(self) -> int:
         while self.max_val:
-            temp = -1*self.max_val[0]
-            if (temp in self.nr_prices):
-                return temp
+            (price_temp, time_temp) = self.max_val[0]
+            if (self.prices[time_temp] == -1*price_temp):
+                return -1*price_temp
             else:
                 heapq.heappop(self.max_val)
         return
 
     def minimum(self) -> int:
         while self.min_val:
-            temp = self.min_val[0]
-            if temp in self.nr_prices:
-                return self.min_val[0]
+            (price_temp, time_temp) = self.min_val[0]
+            if (self.prices[time_temp] == price_temp):
+                return price_temp
             else:
                 heapq.heappop(self.min_val)
         return
