@@ -4,7 +4,6 @@ class StockPrice:
 
     def __init__(self):
         self.prices = {}
-        self.nr_prices = {}
         self.latest = float('-inf')
         self.max_val = []
         self.min_val= []
@@ -13,23 +12,9 @@ class StockPrice:
     def update(self, timestamp: int, price: int) -> None:
         if timestamp not in self.prices:
             self.latest = max(self.latest, timestamp)
-        else:
-            prev = self.prices[timestamp]
-            temp = self.nr_prices[prev]
-            if temp == 1:
-                del self.nr_prices[prev]
-            else:
-                self.nr_prices[prev] = temp - 1
         heapq.heappush(self.min_val,(price,timestamp))
         heapq.heappush(self.max_val,(-1*price,timestamp))
-        self.prices[timestamp] = price
-        if price in self.nr_prices:
-            temp = self.nr_prices[price] 
-            self.nr_prices[price] = temp + 1
-        else:
-            self.nr_prices[price] = 1
-            
-            
+        self.prices[timestamp] = price            
 
     def current(self) -> int:
         if self.latest > 0:
