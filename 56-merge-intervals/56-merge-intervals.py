@@ -21,24 +21,11 @@ class Solution:
                 #delete all touched
                 del result[(del_start):(del_end+1)]
                 result.insert(idx_a//2, interval)
-
-                #if (idx_a//2 ) == len(result):
-                #    result.append(interval)
-                #elif(idx_b == 0):
-                #    result.insert(0, interval)
-                #else:
-                #    result[idx_a//2]=interval
-                #    print(result,interval)
-                #    if(del_end>del_start):
-                #        del result[(del_start+1):del_end]
                 
             else:
                 result.append(interval)
         return result
-            #check for merge right
-   #4,5[1,3][6,7]
-   #5[1,3][5,6]
-    
+
     def bisect_l(self,x,a):
         lo = 0
         hi = len(a)*2
