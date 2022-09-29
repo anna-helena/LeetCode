@@ -8,13 +8,11 @@ class Solution:
                 idx_b = self.bisect_r(b,result)
                 #check for merge left
                 if((idx_a % 2) == 1):
-                    new_start = result[idx_a//2][0]
-                    interval[0] = new_start
+                    interval[0] = result[idx_a//2][0]
                 del_start = idx_a//2
                 #check for merge right
                 if((idx_b % 2) == 1):
-                    new_end = result[idx_b//2][1]
-                    interval[1] = new_end
+                    interval[1] = result[idx_b//2][1]
                     del_end = idx_b//2
                 else:
                     del_end = idx_b//2-1
