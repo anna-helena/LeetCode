@@ -24,7 +24,6 @@ class Solution:
         
         i_a = find_index_higher_equal(a,False)
         i_b = find_index_higher_equal(b,True)
-        print(i_a,i_b)
         #define new interval and add
         if intervals:
             if(i_a<len(intervals)):
@@ -42,7 +41,6 @@ class Solution:
                 newInterval[1] = max(b,intervals[temp_i_b][1])
             else:
                 newInterval[1] = b
-            print(newInterval)
             #delete not needed intervals
             del intervals[(i_a):(temp_i_b+1)]
         intervals.insert(i_a,newInterval)
