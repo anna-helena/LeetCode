@@ -43,7 +43,6 @@ class Solution:
                 newInterval[1] = b
         else:
             temp_i_b = 0
-            #del intervals[(i_a):(temp_i_b+1)]
         #intervals.insert(i_a,newInterval)
         
         return intervals[:i_a] + [newInterval] + intervals[(temp_i_b+1):]
