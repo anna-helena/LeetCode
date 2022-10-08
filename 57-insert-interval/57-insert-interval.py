@@ -2,7 +2,6 @@ class Solution:
     def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
         a,b = newInterval
         #find binary sect a
-        #find binary sect b
         
         #biect_left
         def find_index_higher_equal(val,left=True):
