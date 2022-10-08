@@ -41,8 +41,10 @@ class Solution:
                 newInterval[1] = max(b,intervals[temp_i_b][1])
             else:
                 newInterval[1] = b
+        else:
+            temp_i_b = 0
             #delete not needed intervals
-            del intervals[(i_a):(temp_i_b+1)]
+            #del intervals[(i_a):(temp_i_b+1)]
         #intervals.insert(i_a,newInterval)
         
-        return intervals[:i_a] + [newInterval] + intervals[i_a:]
+        return intervals[:i_a] + [newInterval] + intervals[(temp_i_b+1):]
