@@ -3,7 +3,6 @@ class Solution:
         a,b = newInterval
         #find binary sect a
         #find binary sect b
-        #combine where needed
         
         #biect_left
         def find_index_higher_equal(val,left=True):
