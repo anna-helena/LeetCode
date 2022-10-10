@@ -1,10 +1,11 @@
 class Solution:
     def peakIndexInMountainArray(self, arr: List[int]) -> int:
         #adapted binary search
-        lo = 1
-        hi = len(arr) - 2
-        if hi == 1:
+        n = len(arr) - 1
+        if n == 2:
             return 1
+        lo = 1
+        hi = n - 1
         while(lo <= hi):
             mid = (lo + hi)//2
             #if mid < mountain
