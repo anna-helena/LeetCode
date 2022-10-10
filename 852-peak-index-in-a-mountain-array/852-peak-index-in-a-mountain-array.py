@@ -1,6 +1,6 @@
 class Solution:
     def peakIndexInMountainArray(self, arr: List[int]) -> int:
-        #adapted binary search
+        #adapted binary search 
         n = len(arr) - 1
         if n == 2:
             return 1
