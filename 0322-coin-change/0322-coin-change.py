@@ -22,17 +22,21 @@ class Solution:
         return -1
         '''
         #####try dp solution
-        @lru_cache(None)
-        def get_dp(amount):
+        seen = {}
+        def get_dp(amount,seen):
             if amount < 0:
                 return -1
             if amount == 0:
                 return 0
             min_steps = float('inf')
             for coin in coins:
-                res = get_dp(amount-coin)
+                if((amount-coin) in seen):
+                    res = seen[(amount-coin)]
+                else:
+                    res = get_dp(amount-coin,seen)
+                    seen[(amount-coin)] = res
                 if res >= 0:
-                    min_steps = min(min_steps,get_dp(amount-coin))
+                    min_steps = min(min_steps,res)
             return min_steps + 1 if min_steps != float('inf') else -1
-        return get_dp(amount)
+        return get_dp(amount,seen)
                 
