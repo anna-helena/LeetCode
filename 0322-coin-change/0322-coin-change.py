@@ -2,7 +2,7 @@ from collections import deque
 
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
-        '''if amount == 0:
+        if amount == 0:
             return 0
         q = deque()
         seen = set()
@@ -39,4 +39,4 @@ class Solution:
                     min_steps = min(min_steps,res)
             return min_steps + 1 if min_steps != float('inf') else -1
         return get_dp(amount,seen)
-                
+        '''
