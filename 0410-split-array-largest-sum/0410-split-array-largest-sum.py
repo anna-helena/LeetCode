@@ -22,8 +22,6 @@ class Solution:
                     max_links = dp_sol(nums[:idx_start],k-1,seen)
                     seen[(idx_start,k)] = max_links
                 max_total = min(max(max_links,max_rechts),max_total)
-                if max_total == fraction:
-                    return fraction
                 if(max_links < max_rechts):
                     break
                 idx_start -= 1
