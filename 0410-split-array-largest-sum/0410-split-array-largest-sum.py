@@ -23,8 +23,8 @@ class Solution:
             if max_total == fraction:
                 return fraction
             idx_start -= 1
-            while(max_links > max_rechts):
-                if(idx_start < k-1):
+            while(idx_start >= k-1):
+                if(max_links < max_rechts):
                     break
                 max_rechts = sum(nums[idx_start:])
                 if (idx_start,k) in seen:
