@@ -20,8 +20,10 @@ class Solution:
                 max_links = dp_sol(nums[:idx_start],k-1,seen)
                 seen[(idx_start,k)] = max_links
             max_total = max(max_links,max_rechts)
+            if max_total == fraction:
+                return fraction
+            idx_start -= 1
             while(max_links > max_rechts):
-                idx_start -= 1
                 if(idx_start < k-1):
                     break
                 max_rechts = sum(nums[idx_start:])
@@ -32,6 +34,9 @@ class Solution:
                     seen[(idx_start,k)] = max_links
                 new_max = max(max_links,max_rechts)
                 max_total = min(new_max,max_total)
+                if max_total == fraction:
+                    return fraction
+                idx_start -= 1
             return max_total
         return dp_sol(nums,k,seen)
     
