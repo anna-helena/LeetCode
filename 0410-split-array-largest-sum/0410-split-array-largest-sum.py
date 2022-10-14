@@ -5,7 +5,7 @@ class Solution:
         #do it for idx = len(arr)-1 to ....k-1 or until sum is bigger than the other dp
         #maybe start with idx at fraction of sum just under it
         seen = {}
-        def dp_sol(nums,k,seen):
+        def dp_sol(nums,k):
             if k == 1:
                 return sum(nums)
             idx_start = len(nums)-1
@@ -17,7 +17,7 @@ class Solution:
             if (idx_start,k) in seen:
                 max_links = seen[(idx_start,k)]
             else:
-                max_links = dp_sol(nums[:idx_start],k-1,seen)
+                max_links = dp_sol(nums[:idx_start],k-1)
                 seen[(idx_start,k)] = max_links
             max_total = max(max_links,max_rechts)
             if max_total == fraction:
@@ -30,13 +30,13 @@ class Solution:
                 if (idx_start,k) in seen:
                     max_links = seen[(idx_start,k)]
                 else:
-                    max_links = dp_sol(nums[:idx_start],k-1,seen)
+                    max_links = dp_sol(nums[:idx_start],k-1)
                     seen[(idx_start,k)] = max_links
                 new_max = max(max_links,max_rechts)
                 max_total = min(new_max,max_total)
                 if max_total == fraction:
                     return fraction
             return max_total
-        return dp_sol(nums,k,seen)
+        return dp_sol(nums,k)
     
                   
