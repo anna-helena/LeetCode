@@ -13,18 +13,29 @@ class Solution:
             while (sum(nums[idx_start:])<=fraction) & (idx_start>=k):
                   idx_start -= 1
             idx_start = min(len(nums)-1,idx_start+1)
-            max_total = float('inf')
-            while(idx_start >= k-1):
+            max_rechts = sum(nums[idx_start:])
+            if (idx_start,k) in seen:
+                max_links = seen[(idx_start,k)]
+            else:
+                max_links = dp_sol(nums[:idx_start],k-1,seen)
+                seen[(idx_start,k)] = max_links
+            max_total = max(max_links,max_rechts)
+            if max_total == fraction:
+                return fraction
+            while(max_links > max_rechts):
+                idx_start -= 1
+                if(idx_start < k-1):
+                    break
                 max_rechts = sum(nums[idx_start:])
                 if (idx_start,k) in seen:
                     max_links = seen[(idx_start,k)]
                 else:
                     max_links = dp_sol(nums[:idx_start],k-1,seen)
                     seen[(idx_start,k)] = max_links
-                max_total = min(max(max_links,max_rechts),max_total)
-                if(max_links < max_rechts):
-                    break
-                idx_start -= 1
+                new_max = max(max_links,max_rechts)
+                max_total = min(new_max,max_total)
+                if max_total == fraction:
+                    return fraction
             return max_total
         return dp_sol(nums,k,seen)
     
