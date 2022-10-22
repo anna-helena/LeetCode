@@ -1,4 +1,3 @@
-from collections import defaultdict
 from sortedcontainers import SortedDict
 
 class Solution:
