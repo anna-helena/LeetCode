@@ -18,13 +18,13 @@ class Solution:
                 continue
             found = True
             for w in word:
-                occurences = s_[w]
-                idx = bisect.bisect_right(occurences,last_idx)
-                if idx > len(occurences)-1:
+                #occurences = s_[w]
+                idx = bisect.bisect_right(s_[w],last_idx)
+                if idx > len(s_[w])-1:
                     found = False
                     break
                 else:
-                    last_idx = occurences[idx]
+                    last_idx = s_[w][idx]
             if found:
                 count += 1
         return count
