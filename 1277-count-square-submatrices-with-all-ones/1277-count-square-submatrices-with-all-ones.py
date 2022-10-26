@@ -7,9 +7,9 @@ class Solution:
                 #print(matrix)
                 if matrix[i][j] == 0:
                     continue
-                count += 1
                 if (j < (len(matrix[0])-1)) & (i < (len(matrix)-1)):
-                    min_val = min(matrix[i][j+1], matrix[i+1][j], matrix[i+1][j+1])
-                    count += min_val
-                    matrix[i][j] = min_val + 1
+                    matrix[i][j] = min(matrix[i][j+1], matrix[i+1][j], matrix[i+1][j+1]) + 1
+                    count += matrix[i][j]
+                else:
+                    count += 1
         return count
