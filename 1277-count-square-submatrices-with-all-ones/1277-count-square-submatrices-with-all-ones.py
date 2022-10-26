@@ -1,7 +1,5 @@
 class Solution:
     def countSquares(self, matrix: List[List[int]]) -> int:
-        #move from right to left from button to up
-        #when encounter 1 (add one to count), when encounter 4 add 2, when encounter 13 add 3
         count = 0
         for i in range(len(matrix)-1,-1,-1):
             for j in range(len(matrix[0])-1,-1,-1):
