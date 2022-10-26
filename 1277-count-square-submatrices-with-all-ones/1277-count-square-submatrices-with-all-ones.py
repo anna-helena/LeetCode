@@ -11,7 +11,6 @@ class Solution:
                 count += 1
                 if (j < (len(matrix[0])-1)) & (i < (len(matrix)-1)):
                     min_val = min(matrix[i][j+1], matrix[i+1][j], matrix[i+1][j+1])
-                    print('min_val',min_val)
                     count += min_val
                     matrix[i][j] = min_val + 1
         return count
