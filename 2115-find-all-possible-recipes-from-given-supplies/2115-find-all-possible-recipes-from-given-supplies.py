@@ -7,26 +7,27 @@ class Solution:
             recs[recipe] = idx
         solution = []
         seen = {}
+        def helper_(idx):
+            if recipes[idx] in seen:
+                if seen[recipes[idx]]:
+                    return True
+                else:
+                    return False
+            for ingredient in ingredients[idx]:
+                    if ingredient not in supplies:
+                        if ingredient in recs:
+                            seen[recipes[idx]] = False
+                            if not helper_(recs[ingredient]):
+                                return False
+                        else:
+                            seen[recipes[idx]] = False
+                            return False
+            seen[recipes[idx]] = True
+            supplies.add(recipes[idx])
+            return True
+    
         for idx,recipe in enumerate(recipes):
-            if self.helper_(idx,recs,recipes,ingredients,supplies,seen):
+            if helper_(idx):
                 solution.append(recipe)
         return solution
     
-    def helper_(self,idx,recs,recipes,ingredients,supplies,seen):
-        if recipes[idx] in seen:
-            if seen[recipes[idx]]:
-                return True
-            else:
-                return False
-        for ingredient in ingredients[idx]:
-                if ingredient not in supplies:
-                    if ingredient in recs:
-                        seen[recipes[idx]] = False
-                        if not self.helper_(recs[ingredient],recs,recipes,ingredients,supplies,seen):
-                            return False
-                    else:
-                        seen[recipes[idx]] = False
-                        return False
-        seen[recipes[idx]] = True
-        supplies.add(recipes[idx])
-        return True
