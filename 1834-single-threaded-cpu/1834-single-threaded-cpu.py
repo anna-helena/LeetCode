@@ -6,22 +6,25 @@ class Solution:
         for idx,task in enumerate(tasks):
             enqueue.append((task[0],idx))
         heapq.heapify(enqueue)
+        enqueue = [(enq,process,idx) for idx, (enq,process) in enumerate(tasks)]
+        enqueue.sort()
         time = enqueue[0][0]
         consider = []
         sol = []
-        while enqueue:
-            while enqueue[0][0] <= time:
-                temp = heapq.heappop(enqueue)
-                new_consider = (tasks[temp[1]][1],temp[1])
+        idx_start = 0
+        while idx_start < len(enqueue):
+            while enqueue[idx_start][0] <= time:
+                new_consider = (enqueue[idx_start][1],enqueue[idx_start][2])
                 heapq.heappush(consider,new_consider)
-                if len(enqueue) == 0:
+                idx_start += 1
+                if idx_start == len(enqueue):
                     break
             if len(consider) > 0:
                 next_consider = heapq.heappop(consider)
                 sol.append(next_consider[1])
                 time += next_consider[0]
             else:
-                time = enqueue[0][0]
+                time = enqueue[idx_start][0]
         while consider:
             next_consider = heapq.heappop(consider)
             sol.append(next_consider[1])
