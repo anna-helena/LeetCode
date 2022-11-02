@@ -11,7 +11,6 @@ class Solution:
             H.append((-1*seen[s_],s_))
         heapq.heapify(H)
         sol = []
-        print(H)
         for i in range(k):
             temp = heapq.heappop(H)
             sol.append(temp[1])
