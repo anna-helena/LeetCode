@@ -3,7 +3,6 @@ class Solution:
         
         for i,row in enumerate(board):
             prev = set()
-            print(prev)
             for nr in row:
                 print(prev)
                 if nr == ".":
@@ -21,7 +20,6 @@ class Solution:
                 prev.add(board[j][i])
         for i in range(3):
             for j in range(3):
-                print(prev)
                 prev = set()
                 for i_ in range(3):
                     for j_ in range(3):
