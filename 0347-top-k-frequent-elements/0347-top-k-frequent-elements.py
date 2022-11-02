@@ -6,9 +6,7 @@ class Solution:
         seen = defaultdict(int)
         for num in nums:
             seen[num] += 1
-        H = []
-        for s_ in seen:
-            H.append((-1*seen[s_],s_))
+        H = [(-1*frequ,num) for num,frequ in seen.items()]
         heapq.heapify(H)
         sol = []
         for i in range(k):
