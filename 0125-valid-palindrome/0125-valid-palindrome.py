@@ -5,12 +5,9 @@ class Solution:
         nums = set(range(ord('0'),ord('9')+1))
         letters = set(range(ord('a'),ord('z')+1))
         letters = letters.union(nums)
-        print(letters)
         while(i<j):
             temp_i = s[i]
             temp_j = s[j]
-            print(temp_i,temp_j)
-            print(ord(temp_i.lower()),ord(temp_j.lower()))
             if not ord(temp_i.lower()) in letters:
                 i += 1
                 continue
