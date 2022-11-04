@@ -6,4 +6,4 @@ class Solution:
                 return [prev[num],idx]
             else:
                 prev[target-num] = idx
-        
+       
