@@ -3,9 +3,7 @@ class Solution:
         if len(s) == 0:
             return 0
         prev = {}
-        max_len = 0
-        idx_start = 0
-        idx = 0
+        max_len = idx_start = idx = 0
         for idx,s_ in enumerate(s):
             if s_ in prev:
                 if prev[s_] >= idx_start:
