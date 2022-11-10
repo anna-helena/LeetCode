@@ -8,7 +8,6 @@ class Solution:
         sol = ListNode()
         curr = sol
         while list1 and list2:
-            print(sol)
             if list1.val <= list2.val:
                 curr.next = list1
                 list1 = list1.next
