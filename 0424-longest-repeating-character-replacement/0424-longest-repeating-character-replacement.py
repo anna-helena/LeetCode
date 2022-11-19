@@ -8,7 +8,6 @@ class Solution:
         max_len = 0
         for j,s_ in enumerate(s):
             occurences[s_] += 1
-            print(occurences)
             while (j-i+1) - max(occurences.values()) > k:
                 occurences[s[i]] -= 1
                 i += 1
