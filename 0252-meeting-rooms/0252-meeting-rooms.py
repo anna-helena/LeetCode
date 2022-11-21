@@ -5,10 +5,11 @@ class Solution:
         prev2 = {}
         for interval in intervals:
             x,y = interval
-            if prev.bisect_right(x) != prev.bisect_left(y):
+            temp = prev.bisect_right(x)
+            if temp != prev.bisect_left(y):
                 return False
-            if prev.bisect_right(x) > 0:
-                if prev[prev.bisect_right(x)-1] in prev2:
+            if temp > 0:
+                if prev[temp-1] in prev2:
                     return False
             prev.add(x)
             prev2[x] = 0
