@@ -7,11 +7,12 @@ class Solution:
                 parents[x] = x
             if y not in parents:
                 parents[y] = y
-            temp = self.find_parent(x,parents)
-            if temp == self.find_parent(y,parents):
+            temp_x = self.find_parent(x,parents)
+            temp_y = self.find_parent(y,parents)
+            if temp_x == temp_y:
                 res = [x,y]
             else:
-                parents[temp] = y
+                parents[temp_x] = temp_y
         return res
             
     
