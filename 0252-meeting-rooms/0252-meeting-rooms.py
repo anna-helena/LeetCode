@@ -1,12 +1,16 @@
+from sortedcontainers import SortedList
 class Solution:
     def canAttendMeetings(self, intervals: List[List[int]]) -> bool:
-        prev = set()
+        prev = SortedList()
+        prev2 = {}
         for interval in intervals:
-            start, finish = interval
-            for i in range(start+1,finish):
-                if i in prev:
+            x,y = interval
+            if prev.bisect_right(x) != prev.bisect_left(y):
+                return False
+            if prev.bisect_right(x) > 0:
+                if prev[prev.bisect_right(x)-1] in prev2:
                     return False
-            else:
-                for i in range(start,finish+1):
-                    prev.add(i)
+            prev.add(x)
+            prev2[x] = 0
+            prev.add(y)
         return True
