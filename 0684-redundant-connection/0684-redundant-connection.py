@@ -19,6 +19,7 @@ class Solution:
     def find_parent(self,node,parents):
         if parents[node] == node:
             return node
-        return self.find_parent(parents[node],parents)
+        parents[node] = self.find_parent(parents[node],parents)
+        return parents[node]
         
         
