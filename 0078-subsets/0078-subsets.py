@@ -6,7 +6,6 @@ class Solution:
             temp = []
             for re in res:
                 temp.append(re.copy()+[num])
-                print(temp)
             res += temp
         return res
             
