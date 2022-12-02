@@ -5,7 +5,7 @@ class Solution:
         for num in nums:
             temp = []
             for re in res:
-                temp.append(re.copy()+[num])
+                temp.append(re+[num])
             res += temp
         return res
             
